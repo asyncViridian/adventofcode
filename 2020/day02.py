@@ -1,6 +1,6 @@
 ### PART 1
 # read the input
-f = open('input/Day02.txt', 'r')
+f = open('input/day02.txt', 'r')
 input = [x for x in f]
 f.close()
 # function to calculate if a password entry line is valid according tp P1 rules
