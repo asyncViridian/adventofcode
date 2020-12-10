@@ -1,6 +1,6 @@
 ### PART 1
 # read the input into a list
-f = open('input/Day01.txt', 'rb')
+f = open('input/Day01.txt', 'r')
 input = [int(x) for x in f]
 f.close()
 print('input: ', input)
