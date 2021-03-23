@@ -1,5 +1,3 @@
-import math
-
 ### PART 1
 # read the input
 f = open('input/day21.txt', 'r')
