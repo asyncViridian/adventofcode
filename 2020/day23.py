@@ -26,13 +26,13 @@ def move_part1(cups, current_i):
     dest_i = cups.index(dest_label)
     # insert the selected cups
     return cups[:dest_i+1]+selected+cups[dest_i+1:]
-# for i in range(100):
-#     cups = move_part1(cups, 0 if i==0 else 1)
-# # move 1 to the beginning
-# one_i = cups.index(1)
-# cups = cups[one_i:]+cups[:one_i]
-# # print out the contents after the 1
-# print(''.join([str(e) for e in cups[1:]]))
+for i in range(100):
+    cups = move_part1(cups, 0 if i==0 else 1)
+# move 1 to the beginning
+one_i = cups.index(1)
+cups = cups[one_i:]+cups[:one_i]
+# print out the contents after the 1
+print(''.join([str(e) for e in cups[1:]]))
 
 ### PART 2
 # lol my super simple soln for part 1 isn't going to run fast now!
