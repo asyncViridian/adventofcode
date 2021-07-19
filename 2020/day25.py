@@ -31,3 +31,4 @@ print(" encryption_key:", handshake(public_key_card, loop_door))
 print(" encryption_key:", handshake(public_key_door, loop_card))
 
 ### PART 2
+# oh hey, there's no actual separate part 2 for day 25! :>
