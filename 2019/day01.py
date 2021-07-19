@@ -11,3 +11,13 @@ fuel = [((i // 3) - 2) for i in mass]
 print(sum(fuel))
 
 ### PART 2
+# define a function to handle the recursive fuel-requiring-fuel
+def fuel_reqs(mass):
+    total_fuel = 0
+    incr_fuel = (mass // 3) - 2
+    while incr_fuel > 0:
+        total_fuel += incr_fuel
+        incr_fuel = (incr_fuel // 3) - 2
+    return total_fuel
+# get the total recursive fuel requirements...
+print(sum([fuel_reqs(i) for i in mass]))
