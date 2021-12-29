@@ -11,4 +11,11 @@ for i in range(len(input)-1):
 print(count)
 
 ### PART 2
-# TODO
+# count how many times the sum of a 3-measurement window increases
+count = 0
+for i in range(len(input)-3):
+    sum_prev = sum(input[i:i+3])
+    sum_post = sum(input[i+1:i+4])
+    if sum_post>sum_prev:
+        count += 1
+print(count)
