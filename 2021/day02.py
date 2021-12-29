@@ -18,4 +18,14 @@ for i_t, i_n in instr:
 print(pos, pos[0]*pos[1])
 
 ### PART 2
-# TODO
+# figure out position of (horizontal, depth, aim)
+pos = [0, 0, 0]
+for i_t, i_n in instr:
+    if i_t=='forward':
+        pos[0] += i_n
+        pos[1] += i_n*pos[2]
+    elif i_t=='down':
+        pos[2] += i_n
+    elif i_t=='up':
+        pos[2] -= i_n
+print(pos, pos[0]*pos[1])
