@@ -29,4 +29,36 @@ def binary_to_decimal(value):
 print(gamma, epsilon, binary_to_decimal(gamma) * binary_to_decimal(epsilon))
 
 ### PART 2
-# TODO
+# get oxygen rating (most common value, tiebreak with 1)
+options = [e for e in input]
+oxygen = ''
+for i in range(len(input[0])):
+    values = {'0':[], '1':[]}
+    if len(options)==1:
+        oxygen += options[0]
+        break
+    for e in options:
+        values[e[0]].append(e[1:])
+    if len(values['0'])>len(values['1']):
+        oxygen += '0'
+        options = values['0']
+    else:
+        oxygen += '1'
+        options = values['1']
+# get co2 rating (least common value, tiebreak with 0)
+options = [e for e in input]
+co2 = ''
+for i in range(len(input[0])):
+    values = {'0':[], '1':[]}
+    if len(options)==1:
+        co2 += options[0]
+        break
+    for e in options:
+        values[e[0]].append(e[1:])
+    if len(values['1'])<len(values['0']):
+        co2 += '1'
+        options = values['1']
+    else:
+        co2 += '0'
+        options = values['0']
+print(oxygen, co2, binary_to_decimal(oxygen)*binary_to_decimal(co2))
