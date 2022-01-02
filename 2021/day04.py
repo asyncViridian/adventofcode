@@ -38,10 +38,10 @@ class BingoBoard:
 # parse input into relevant things
 nums = [int(i) for i in fi[0].split(',')]
 boards = []
-fi = fi[1:]
-while len(fi)>0:
-    boards.append(BingoBoard(fi[1:6]))
-    fi = fi[6:]
+fi_boards = fi[1:]
+while len(fi_boards)>0:
+    boards.append(BingoBoard(fi_boards[1:6]))
+    fi_boards = fi_boards[6:]
 # run the bingosim
 for num in nums:
     sc = None
@@ -54,4 +54,32 @@ for num in nums:
         break
 
 ### PART 2
-# TODO
+# re-parse input since we modified them before
+boards = []
+fi_boards = fi[1:]
+while len(fi_boards)>0:
+    boards.append(BingoBoard(fi_boards[1:6]))
+    fi_boards = fi_boards[6:]
+# run the bingosim, this time to aim for longest
+num_i = 0
+while num_i<len(nums):
+    num = nums[num_i]
+    boards_next = []
+    for ib in range(len(boards)):
+        sc = boards[ib].callNum(num)
+        if sc is None:
+            boards_next.append(boards[ib])
+    boards = boards_next
+    num_i += 1
+    # check to see if we are at last board alive
+    if len(boards)==1:
+        break
+# now calculate score of the last board
+lboard = boards[0]
+while num_i<len(nums):
+    sc = lboard.callNum(nums[num_i])
+    num_i += 1
+    if sc is not None:
+        print(sc)
+        break
+
